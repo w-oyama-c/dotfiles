@@ -1,0 +1,104 @@
+[user]
+  useConfigOnly = true
+[pretty]
+  logview = %C(yellow)%m %h%C(reset) - %s %C(green)%cd %C(bold blue)%an<%ae>%C(reset)%C(auto)%d%C(reset)%n
+  reflogview = %C(yellow)%h%C(reset) - %C(green)%gd %C(bold blue)<%an> %C(reset)%gs %C(auto)%d%C(reset)
+[alias]
+  ad = add
+  b = branch -vv
+  ba = branch -vv -a
+  cm = commit -v
+  co = checkout
+  cnf = config
+  cp = cherry-pick
+  scnf = config --system
+  gcnf = config --global
+  lcnf = config --local
+  wm = difftool --tool=winmerge
+  wmc = difftool --cached --tool=winmerge
+  df = diff
+  dft = difftool
+  dfc = diff --cached
+  dftc = difftool --cached
+  dff = diff --name-status
+  dffc = diff --cached --name-status
+  dfl = diff --name-only
+  dflc = diff --cached --name-only
+  fe = fetch --all --append --prune
+  mg = merge
+  rb = rebase
+  sts = stash
+  stsl = stash list
+  stsp = stash pop
+  stss = stash save
+  st = status
+  sst = status --short
+  sti = status --ignored
+  ssti = status --short --ignored
+  sw = switch
+  rl = reflog --pretty=reflogview
+  lg = log --graph --abbrev-commit --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
+  lgf = log --graph --abbrev-commit --name-status --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
+  tg = tag -l --sort=-*committerdate --format='%(color:yellow)(%(objectname:short)) %(color:no-bold green)commit:%(*committerdate:short)\t%(color:bold yellow)%(tag)\t%(color:bold blue)<%(taggername)>\t%(color:reset)%(subject)'
+  tgv = tag -l --sort=-*committerdate --format='%(color:yellow)(%(objectname:short)) %(color:no-bold green)commit:%(*committerdate:short)\t%(color:bold yellow)%(tag)\t%(color:bold blue)<%(taggername)>\t%(color:reset)%(subject)\n%(body)'
+  ignore = rm --cached
+[log]
+  graphColors = bold blue,bold red,bold cyan,bold green,bold magenta
+[merge]
+  ff = false
+[pull]
+  ff = only
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  required = true
+  clean = git-lfs clean -- %f
+[color]
+  ui = true
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = bold blue
+  deleted = red
+  localBranch = bold green
+  remoteBranch = bold red
+[color "branch"]
+  current = bold green
+  remote = bold red
+  upstream = bold blue
+[color "diff"]
+  meta = bold cyan
+  frag = bold yellow
+  func = bold blue
+  whitespace = red
+  old = 167 bold
+  new = 030 bold
+[pager]
+  log = '/usr/local/bin/diff-highlight' | less
+  show = '/usr/local/bin/diff-highlight' | less
+  diff = '/usr/local/bin/diff-highlight' | less
+[diff]
+  toll = vimdiff
+  compactionHeuristic = true
+[diff "cp932"]
+  textconv = iconv -f cp932 -t utf-8
+[diff "sjis"]
+  textconv = iconv -f sjis -t utf-8
+[diff "eucjp"]
+  textconv = iconv -f eucjp -t utf-8
+[core]
+  editor = vi -c 'set fenc=utf-8'
+  excludesfile = "~/.gitignore"
+  autoCRLF = false
+  pager = LESSCHARSET=utf-8 less
+  quotepath = false
+  commentChar = ";"
+  preloadindex = true
+  fscache = true
+[difftool]
+  prompt = false
+[gc]
+  auto = 256
+[fetch]
+  prune = true
+[commit]
+  template = "~/.git-commit-template"

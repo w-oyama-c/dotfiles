@@ -1,0 +1,107 @@
+[[plugins]] # Dein本体# {{{
+repo = 'Shougo/dein.vim'
+# }}}
+
+[[plugins]] # いろいろ一覧化したい# {{{
+repo = 'Shougo/unite.vim'
+# }}}
+
+[[plugins]] # Uniteでアウトライン表示# {{{
+repo = 'Shougo/unite-outline'
+depends = ['Shougo/unite.vim']
+# }}}
+
+[[plugins]] # 非同期処理のサポート# {{{
+repo = 'Shougo/vimproc'
+# git cloneのあとmakeしないといけない
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+# }}}
+
+[[plugins]] # gxでカーソル上のURLを開けるやつ# {{{
+repo = 'vim-scripts/open-browser.vim'
+# }}}
+
+[[plugins]] # ステータスラインをイカしたやつに# {{{
+repo = 'bling/vim-airline'
+# }}}
+
+[[plugins]] # Airlineのテーマ# {{{
+repo = 'vim-airline/vim-airline-themes'
+# }}}
+
+[[plugins]] # アウトライン表示# {{{
+repo = 'majutsushi/tagbar'
+# }}}
+
+[[plugins]] # ウィンドウリサイズ# {{{
+repo = 'simeji/winresizer'
+# }}}
+
+[[plugins]] # foldmethod=[expr|syntax] が激重なので、それを解決# {{{
+repo = 'Konfekt/FastFold'
+# }}}
+
+[[plugins]] # Twigファイルのシンタックスハイライト対応# {{{
+repo = 'nelsyeung/twig.vim'
+# }}}
+
+[[plugins]] # QuickFixをUniteで表示# {{{
+repo = 'sgur/unite-qf'
+depends = ['Shougo/unite.vim']
+# }}}
+
+[[plugins]] # Visualモードの選択範囲を*で検索# {{{
+repo = 'nelstrom/vim-visual-star-search'
+# }}}
+
+[[plugins]] # テキスト整形ツール# {{{
+repo = 'h1mesuke/vim-alignta'
+# }}}
+
+[[plugins]] # インデントの深さを視覚化# {{{
+repo = 'nathanaelkane/vim-indent-guides'
+# }}}
+
+[[plugins]] # えっ？git関係がUniteに！？# {{{
+repo = 'kmnk/vim-unite-giti'
+depends = ['Shougo/unite.vim']
+# }}}
+
+[[plugins]] # vim上でgitコマンドがうてる# {{{
+repo = 'tpope/vim-fugitive'
+# }}}
+
+[[plugins]] # カーソル位置に合わせてfiletype自動切り替え# {{{
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+# }}}
+
+[[plugins]] # カーソル位置のfiletype判定# {{{
+repo = 'Shougo/context_filetype.vim'
+# }}}
+
+[[plugins]] # マークを可視化# {{{
+repo = 'kshenoy/vim-signature'
+# }}}
+
+[[plugins]] # 任意のテキストオブジェクトに " とかの囲みを入れたり消したり#{{{
+repo = 'rhysd/vim-operator-surround'
+depends = ['kana/vim-operator-user']
+# }}}
+
+[[plugins]] # vim-operator-surround の依存プラグイン#{{{
+repo = 'kana/vim-operator-user'
+# }}}
+
+# vim: fdm=marker
