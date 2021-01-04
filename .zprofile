@@ -18,6 +18,7 @@ fi
 #
 
 export EDITOR='vi'
+export SUDO_EDITOR="vi"
 export VISUAL='vi'
 export PAGER='less'
 
@@ -71,9 +72,6 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"
 export PATH="$HOME/.nodenv/shims:$PATH"
 
 export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openjdk/include"
-
-export EDITOR="vi"
-export SUDO_EDITOR="vi"
 
 export EXA_COLORS="da=36"
 
