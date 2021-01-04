@@ -61,3 +61,19 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
+
+#
+# Other environments
+#
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"
+export PATH="$HOME/.nodenv/shims:$PATH"
+
+export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openjdk/include"
+
+export EDITOR="vi"
+export SUDO_EDITOR="vi"
+
+export EXA_COLORS="da=36"
+

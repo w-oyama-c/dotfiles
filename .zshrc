@@ -24,17 +24,6 @@ prompt powerlevel10k
 
 
 # Customize to your needs...
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"
-export PATH="$HOME/.nodenv/shims:$PATH"
-
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openjdk/include"
-
-export EDITOR="vi"
-export SUDO_EDITOR="vi"
-
-export EXA_COLORS="da=36"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
