@@ -52,5 +52,5 @@ compinit -u
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias g=git
-alias ll="exa -l -h -@ -mU --icons --git --time-style=long-iso --color=automatic --group-directories-first"
+alias ll="exa -l -h -@ -m --icons --git --time-style=long-iso --color=automatic --group-directories-first"
 alias l="ll -aa"
