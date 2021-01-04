@@ -8,6 +8,7 @@ echo
 read -p "Setup vim general settings? (Y/n) " ans
 case $ans in
   "" | [Yy]* )
+    mkdir ~/.vim
     ln -siv $SCRIPT_DIR/.vimrc ~/.vimrc
     ln -siv $SCRIPT_DIR/.vim/colors/ ~/.vim/
     mkdir -p ~/.vim/backup
