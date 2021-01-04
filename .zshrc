@@ -34,6 +34,8 @@ export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openjdk/include"
 export EDITOR="vi"
 export SUDO_EDITOR="vi"
 
+export EXA_COLORS="da=36"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
