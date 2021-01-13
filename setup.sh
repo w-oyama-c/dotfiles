@@ -68,6 +68,18 @@ case $ans in
   * )
 esac
 
+read -p "Add any useful windows-commands aliases to \"/usr/local/bin\" ? (Y/n) " ans
+case $ans in
+  "" | [Yy]* )
+    sudo ln -siv /mnt/c/Windows/System32/clip.exe /usr/local/bin/clip
+    sudo ln -siv /mnt/c/Windows/explorer.exe /usr/local/bin/explorer
+
+    echo
+    ;;
+  * )
+esac
+
+
 echo
 echo "Done."
 exit 0
