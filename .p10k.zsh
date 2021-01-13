@@ -209,9 +209,9 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=4
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=237
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=254
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=178
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
@@ -341,7 +341,15 @@
   # parameter. For example, if POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_FOREGROUND is not set, it falls
   # back to POWERLEVEL9K_DIR_FOREGROUND.
   #
-  # typeset -g POWERLEVEL9K_DIR_CLASSES=()
+  typeset -g POWERLEVEL9K_DIR_CLASSES=(
+    '~(|/*)'      HOME      ''
+    '*'           DEFAULT   ''
+  )
+  typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_DIR_HOME_BACKGROUND=67
+  typeset -g POWERLEVEL9K_DIR_HOME_FOREGROUND=7
+  typeset -g POWERLEVEL9K_DIR_HOME_SHORTENED_FOREGROUND=250
+  typeset -g POWERLEVEL9K_DIR_HOME_ANCHOR_FOREGROUND=255
 
   # Custom prefix.
   # typeset -g POWERLEVEL9K_DIR_PREFIX='in '
