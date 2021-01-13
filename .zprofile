@@ -68,6 +68,7 @@ fi
 #
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+export PATH="$HOME/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"
 export PATH="$HOME/.nodenv/shims:$PATH"
 
