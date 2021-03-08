@@ -75,4 +75,5 @@ export PATH="$HOME/.nodenv/shims:$PATH"
 export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openjdk/include"
 
 export EXA_COLORS="da=36"
+export BAT_CONFIG_PATH="$HOME/.config/bat/config"
 

@@ -63,6 +63,9 @@ case $ans in
     ln -siv $SCRIPT_DIR/.zprofile ~/.zprofile
     ln -siv $SCRIPT_DIR/.zshrc ~/.zshrc
 
+    mkdir -p ~/.config
+    ln -siv $SCRIPT_DIR/.config/bat/ ~/.config/
+
     echo
     ;;
   * )
