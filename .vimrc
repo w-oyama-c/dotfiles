@@ -354,4 +354,10 @@ endfunction
 colorscheme arcenix     " オレオレカラーを
 set background=dark     " ダークテーマで。
 syntax on               " シンタックスカラーリングを設定する
+
+" 背景を半透明に
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight SpecialKey ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 "}}}
