@@ -109,6 +109,17 @@ augroup greps
 augroup END
 "}}}
 
+" モードごとにカーソルタイプを変更"{{{
+if has('vim_starting')
+  " INSERT
+  let &t_SI .= "\e[6 q"
+  " NORMAL
+  let &t_EI .= "\e[2 q"
+  " REPLACE
+  let &t_SR .= "\e[4 q"
+endif
+"}}}
+
 " テキスト折り返し"{{{
 set formatoptions=q
 autocmd FileType * setlocal textwidth=0
