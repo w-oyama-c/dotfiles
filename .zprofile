@@ -64,15 +64,33 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 #
+# Check OS type
+#
+if [ "$(uname)" = 'Darwin' ]; then
+  export OS_TYPE='Mac'
+  export HOMEBREW_ROOT='/opt/homebrew'
+elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
+  export OS_TYPE='Linux'
+  export HOMEBREW_ROOT='/home/linuxbrew/.linuxbrew'
+elif [ "$(expr substr $(uname -s) 1 10)" = 'MINGW32_NT' ]; then
+  export OS_TYPE='Cygwin'
+  export HOMEBREW_ROOT='/home/linuxbrew/.linuxbrew'
+else
+  echo "Unknown operation system..." >&2
+  export OS_TYPE='Unknown'
+  export HOMEBREW_ROOT=''
+fi
+
+#
 # Other environments
 #
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $($HOMEBREW_ROOT/bin/brew shellenv)
 
 export PATH="$HOME/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH"
+export PATH="$HOMEBREW_ROOT/opt/openjdk/bin:$PATH"
 export PATH="$HOME/.nodenv/shims:$PATH"
 
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/openjdk/include"
+export CPPFLAGS="-I$HOMEBREW_ROOT/opt/openjdk/include"
 
 export EXA_COLORS="da=36"
 export BAT_CONFIG_PATH="$HOME/.config/bat/config"

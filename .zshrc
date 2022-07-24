@@ -38,7 +38,10 @@ compinit -u
 
 
 # Enable syntax highlight
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_ROOT/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load nodenv
+eval "$(nodenv init -)"
 
 alias g=git
 alias ll="exa -l -h -@ -m --icons --git --time-style=long-iso --color=automatic --group-directories-first"
