@@ -44,5 +44,7 @@ source $HOMEBREW_ROOT/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(nodenv init -)"
 
 alias g=git
-alias ll="exa -l -h -@ -m --icons --git --time-style=long-iso --color=automatic --group-directories-first"
+alias ll="exa -l -h -F -m -U -g --icons --git --time-style=long-iso --color=automatic --group-directories-first"
 alias l="ll -aa"
+alias finder=open
+
