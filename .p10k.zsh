@@ -451,13 +451,13 @@
     # in this case.
     (( VCS_STATUS_HAS_UNSTAGED == -1 )) && res+=" ${modified}─"
 
-    local gitUserName=`git config --local user.name`
-    local gitUserMail=`git config --local user.email`
+    local gitUserName=`git config user.name`
+    local gitUserMail=`git config user.email`
     res+=`echo -e " \uE0B3 "`
     if [[ -z ${gitUserName} ]] || [[ -z ${gitUserMail} ]]; then
-      res+="${conflicted}INVALID USER INFO${clean}"
+      res+="${conflicted}!!USER INFORMATION IS NOT SET!!${clean}"
     else
-      res+="$(git config --local user.name)<$(git config --local user.email)>"
+      res+="${gitUserName}<${gitUserMail}>"
     fi
 
     typeset -g my_git_format=$res
