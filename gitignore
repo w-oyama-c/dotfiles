@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,vim,zsh,vscode,firebase
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,vim,zsh,vscode,firebase
 
+unittest.sh
+TODO
+
 ### Firebase ###
 .idea
 **/node_modules/*
@@ -133,6 +136,7 @@ zsdoc/data
 # MichaelAquilina/zsh-autoswitch-virtualenv plugin's files
 # (for Zsh plugins using Python)
 .venv
+.python-version
 
 # Zunit tests' output
 /tests/_output/*

@@ -1,7 +1,7 @@
 [user]
   useConfigOnly = true
 [init]
-  defaultBranch = main
+  defaultBranch = master
 [pretty]
   logview = %C(yellow)%m %h%C(reset) - %s %C(green)%cd %C(bold blue)%an<%ae>%C(reset)%C(auto)%d%C(reset)%n
   reflogview = %C(yellow)%h%C(reset) - %C(green)%gd %C(bold blue)<%an> %C(reset)%gs %C(auto)%d%C(reset)
@@ -9,6 +9,7 @@
   ad = add
   b = branch -vv
   ba = branch -vv -a
+  bd = !git branch --merged | egrep -v '\\*|develop|staging|master' | xargs git branch -d
   cm = commit -v
   co = checkout
   cnf = config
@@ -28,7 +29,11 @@
   dflc = diff --cached --name-only
   fe = fetch --all --append --prune
   mg = merge
+  pbd = !git pull && git bd
   rb = rebase
+  rl = reflog --pretty=reflogview
+  skip = update-index --skip-worktree
+  unskip = update-index --no-skip-worktree
   sts = stash
   stsl = stash list
   stsp = stash pop
@@ -38,7 +43,6 @@
   sti = status --ignored
   ssti = status --short --ignored
   sw = switch
-  rl = reflog --pretty=reflogview
   lg = log --graph --abbrev-commit --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
   lgf = log --graph --abbrev-commit --name-status --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
   tg = tag -l --sort=-*committerdate --format='%(color:yellow)(%(objectname:short)) %(color:no-bold green)commit:%(*committerdate:short)\t%(color:bold yellow)%(tag)\t%(color:bold blue)<%(taggername)>\t%(color:reset)%(subject)'
@@ -96,11 +100,21 @@
   commentChar = ";"
   preloadindex = true
   fscache = true
+  symlinks = true
+  fileMode = false
 [difftool]
   prompt = false
 [gc]
   auto = 256
 [fetch]
   prune = true
-[commit]
-  template = "~/.git-commit-template"
+#[commit]
+#  template = "~/.git-commit-template"
+[rebase]
+  autosquash = true
+[credential "https://github.com"]
+#  helper =
+  helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+#  helper =
+  helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
