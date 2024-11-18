@@ -54,6 +54,7 @@
   ff = false
 [pull]
   ff = only
+  autostash = true
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
   required = true
@@ -112,9 +113,12 @@
 #  template = "~/.git-commit-template"
 [rebase]
   autosquash = true
+  autostash = true
 [credential "https://github.com"]
 #  helper =
   helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 #  helper =
   helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
+# vim: set ft=gitconfig ff=unix fenc=utf8 enc=utf8 expandtab ts=2 sw=2 :
