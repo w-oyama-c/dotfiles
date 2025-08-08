@@ -9,7 +9,7 @@
   ad = add
   b = branch -vv
   ba = branch -vv -a
-  bd = !git branch --merged | egrep -v '\\*|develop|staging|master' | xargs git branch -d
+  bd = !git branch --merged | egrep -v '\\*|develop|staging|master|main' | xargs git branch -d
   cm = commit -v
   co = checkout
   cnf = config
@@ -109,16 +109,12 @@
   auto = 256
 [fetch]
   prune = true
-#[commit]
-#  template = "~/.git-commit-template"
 [rebase]
   autosquash = true
   autostash = true
 [credential "https://github.com"]
-#  helper =
   helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-#  helper =
   helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 
 # vim: set ft=gitconfig ff=unix fenc=utf8 enc=utf8 expandtab ts=2 sw=2 :
