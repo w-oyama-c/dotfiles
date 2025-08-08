@@ -39,10 +39,23 @@ for filepath in $files; do
     git fetch --all --append --prune
     git gc
 
+    if ! git config --local user.name >/dev/null; then
+      git config --local user.name "w-oyama-c"
+      echo "Setting git user.name: "`git config --local user.name`
+    fi
+    if ! git config --local user.email >/dev/null; then
+      git config --local user.email "w-oyama@carseven.jp"
+      echo "Setting git user.email: "`git config --local user.email`
+    fi
+
+    if [ "$(git config --local core.filemode)" = "true" ]; then
+      git config --local core.filemode false
+    fi
+
     echo -e "\e[32mdone.\e[0m"
   fi
 done
 
 echo
-echo -e "\e[32mWell done!\e[0m"
+echo -e "\e[32mWell done.\e[0m"
 
