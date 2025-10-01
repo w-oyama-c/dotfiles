@@ -1,52 +1,74 @@
 [user]
   useConfigOnly = true
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [pretty]
   logview = %C(yellow)%m %h%C(reset) - %s %C(green)%cd %C(bold blue)%an<%ae>%C(reset)%C(auto)%d%C(reset)%n
   reflogview = %C(yellow)%h%C(reset) - %C(green)%gd %C(bold blue)<%an> %C(reset)%gs %C(auto)%d%C(reset)
 [alias]
+  # 
+  call = "!f() { cmd=\"$1\"; shift; git \"$cmd\" \"$@\"; }; f"
+
   ad = add
-  b = branch -vv
-  ba = branch -vv -a
+
+  b  = branch -vv
+  ba = "!git b -a"
   bd = !git branch --merged | egrep -v '\\*|develop|staging|master|main' | xargs git branch -d
+
   cm = commit -v
+
   co = checkout
-  cnf = config
+
   cp = cherry-pick
-  scnf = config --system
-  gcnf = config --global
-  lcnf = config --local
-  wm = difftool --tool=winmerge
-  wmc = difftool --cached --tool=winmerge
-  df = diff
-  dft = difftool
-  dfc = diff --cached
-  dftc = difftool --cached
-  dff = diff --name-status
-  dffc = diff --cached --name-status
-  dfl = diff --name-only
-  dflc = diff --cached --name-only
-  fe = fetch --all --append --prune
+
+  cnf  = config
+  scnf = "!git cnf --system"
+  gcnf = "!git cnf --global"
+  lcnf = "!git cnf --local"
+
+  df   = diff
+  dft  = difftool
+  dfc  = "!git df --cached"
+  dftc = "!git dft --cached"
+  dff  = "!git df --name-status"
+  dffc = "!git df --cached --name-status"
+  dfl  = "!git df --name-only"
+  dflc = "!git df --cached --name-only"
+
+  wm  = "!git dft --tool=winmerge"
+  wmc = "!git wm --cached"
+
+# fe = fetch --all --append --prune
+  fe = "!git fetch --all --append --prune; echo; echo Current branches:; git b"
+
   mg = merge
+
   pbd = !git pull && git bd
+
   rb = rebase
+
   rl = reflog --pretty=reflogview
-  skip = update-index --skip-worktree
+
+  skip   = update-index --skip-worktree
   unskip = update-index --no-skip-worktree
-  sts = stash
-  stsl = stash list
-  stsp = stash pop
-  stss = stash save
-  st = status
-  sst = status --short
-  sti = status --ignored
-  ssti = status --short --ignored
+
+  sts  = stash
+  stsl = "!git sts list"
+  stsp = "!git sts pop"
+  stss = "!git sts save --include-untracked"
+
+  st   = status
+  sst  = "!git st --short"
+  sti  = "!git st --ignored"
+  ssti = "!git st --short --ignored"
+
   sw = switch
-  lg = log --graph --abbrev-commit --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
-  lgf = log --graph --abbrev-commit --name-status --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
-  tg = tag -l --sort=-*committerdate --format='%(color:yellow)(%(objectname:short)) %(color:no-bold green)commit:%(*committerdate:short)\t%(color:bold yellow)%(tag)\t%(color:bold blue)<%(taggername)>\t%(color:reset)%(subject)'
-  tgv = tag -l --sort=-*committerdate --format='%(color:yellow)(%(objectname:short)) %(color:no-bold green)commit:%(*committerdate:short)\t%(color:bold yellow)%(tag)\t%(color:bold blue)<%(taggername)>\t%(color:reset)%(subject)\n%(body)'
+
+  lg  = log --graph --abbrev-commit --date=format:'%Y/%m/%d %H:%M:%S' --pretty=logview
+  lgf = "!git lg --name-status"
+
+  tg = tag -l --sort=-*committerdate --format='%(color:yellow)(%(objectname:short)) %(color:no-bold green)commit:%(*committerdate:short)\t%(color:bold yellow)%(tag)\t%(color:bold blue)<%(taggername)>\t%(color:reset)%(subject)\n%(body)'
+
   ignore = rm --cached
 [log]
   graphColors = bold blue,bold red,bold cyan,bold green,bold magenta

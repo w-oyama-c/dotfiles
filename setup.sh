@@ -55,16 +55,21 @@ esac
 read -p "Add other dotfiles to \"$HOME\" ? (Y/n) " ans
 case $ans in
   "" | [Yy]* )
-    ln -siv $SCRIPT_DIR/.git-commit-template ~/.git-commit-template
     ln -siv $SCRIPT_DIR/.gitconfig ~/.gitconfig
     ln -siv $SCRIPT_DIR/gitignore ~/.gitignore
     ln -siv $SCRIPT_DIR/.p10k.zsh ~/.p10k.zsh
-    ln -siv $SCRIPT_DIR/.profile ~/.profile
-    ln -siv $SCRIPT_DIR/.zprofile ~/.zprofile
+#    ln -siv $SCRIPT_DIR/.profile ~/.profile
+#    ln -siv $SCRIPT_DIR/.zprofile ~/.zprofile
     ln -siv $SCRIPT_DIR/.zshrc ~/.zshrc
+
+    mkdir -p ~/scripts
+    ln -siv $SCRIPT_DIR/all_fetch.sh ~/scripts/all_fetch.sh
+    ln -siv $SCRIPT_DIR/list_all_branch.sh ~/scripts/list_all_branch.sh
+    ln -siv $SCRIPT_DIR/update.sh ~/scripts/update.sh
 
     mkdir -p ~/.config
     ln -siv $SCRIPT_DIR/.config/bat/ ~/.config/
+    ln -siv $SCRIPT_DIR/.config/zsh/ ~/.config/
 
     echo
     ;;

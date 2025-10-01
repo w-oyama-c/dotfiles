@@ -5,46 +5,57 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Initialize prompt
-autoload -Uz promptinit
-promptinit
-prompt powerlevel10k
-
-
-# Customize to your needs...
+#source /home/linuxbrew/.linuxbrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+source /home/linuxbrew/.linuxbrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Enable asdf
+. /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 
-# Git completion ----------------------->>
+# git-completion
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 autoload -U compinit
 compinit -u
-# <<-- Git Completion --------------------
+
+# zsh syntax highlighting
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh completions
+if type brew &>/dev/null; then
+  FPATH=/home/linuxbrew/.linuxbrew/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-# Enable syntax highlight
-source $HOMEBREW_ROOT/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Android SDK on Windows
+export ANDROID_HOME=/mnt/c/Users/w-oyama/AppData/Local/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export WSLENV=$WSLENV:ANDROID_HOME/p
 
-# Load nodenv
-eval "$(nodenv init -)"
 
+# aliases
 alias g=git
-alias ll="exa -l -h -F -m -U -g --icons --git --time-style=long-iso --color=automatic --group-directories-first"
+alias ll="eza -l -h -F -m -U -g --icons --git --time-style=long-iso --color=automatic --group-directories-first"
 alias l="ll -aa"
-alias finder=open
+alias dc="docker compose"
+
+
+# export PATHs (Safety-path only)
+export PATH=$PATH:/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin
+export COLORTERM=truecolor
+
+# include other files
+[[ ! -f ~/.config/zsh/.secrets.zsh ]] || source ~/.config/zsh/.secrets.zsh
 

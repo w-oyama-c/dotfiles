@@ -4,6 +4,12 @@
 unittest.sh
 TODO
 
+# w-oyama-c local rules
+lib/template/carmatch/loginSD.tmp
+lib/template/idemitsu/loginSD.tmp
+lib/template/smasma/loginSD.tmp
+html/mec
+
 ### Firebase ###
 .idea
 **/node_modules/*
@@ -137,6 +143,7 @@ zsdoc/data
 # (for Zsh plugins using Python)
 .venv
 .python-version
+.tool-versions
 
 # Zunit tests' output
 /tests/_output/*
