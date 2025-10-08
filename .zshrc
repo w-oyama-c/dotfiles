@@ -13,6 +13,9 @@ source /home/linuxbrew/.linuxbrew/Cellar/powerlevel10k/1.20.0/share/powerlevel10
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Editor setting
+export EDITOR=vim
+
 # Enable asdf
 . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 
