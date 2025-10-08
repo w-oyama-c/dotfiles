@@ -70,6 +70,7 @@ case $ans in
     mkdir -p ~/.config
     ln -siv $SCRIPT_DIR/.config/bat/ ~/.config/
     ln -siv $SCRIPT_DIR/.config/zsh/ ~/.config/
+    ln -siv $SCRIPT_DIR/.config/glow/ ~/.config/
 
     echo
     ;;
