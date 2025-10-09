@@ -6,7 +6,6 @@
   logview = %C(yellow)%m %h%C(reset) - %s %C(green)%cd %C(bold blue)%an<%ae>%C(reset)%C(auto)%d%C(reset)%n
   reflogview = %C(yellow)%h%C(reset) - %C(green)%gd %C(bold blue)<%an> %C(reset)%gs %C(auto)%d%C(reset)
 [alias]
-  # 
   call = "!f() { cmd=\"$1\"; shift; git \"$cmd\" \"$@\"; }; f"
 
   ad = add
@@ -38,7 +37,6 @@
   wm  = "!git dft --tool=winmerge"
   wmc = "!git wm --cached"
 
-# fe = fetch --all --append --prune
   fe = "!git fetch --all --append --prune; echo; echo Current branches:; git b"
 
   mg = merge
@@ -74,6 +72,7 @@
   graphColors = bold blue,bold red,bold cyan,bold green,bold magenta
 [merge]
   ff = false
+  conflictStyle = zdiff3
 [pull]
   ff = only
   autostash = true
@@ -101,10 +100,6 @@
   whitespace = red
   old = 167 bold
   new = 030 bold
-[pager]
-  log = '/usr/local/bin/diff-highlight' | less
-  show = '/usr/local/bin/diff-highlight' | less
-  diff = '/usr/local/bin/diff-highlight' | less
 [diff]
   toll = vimdiff
   compactionHeuristic = true
@@ -118,13 +113,15 @@
   editor = vi -c 'set fenc=utf-8'
   excludesfile = "~/.gitignore"
   autoCRLF = false
-  pager = LESSCHARSET=utf-8 less
+  pager = "delta"
   quotepath = false
   commentChar = ";"
   preloadindex = true
   fscache = true
   symlinks = true
   fileMode = false
+[interactive]
+  diffFilter = "delta --color-only"
 [difftool]
   prompt = false
 [gc]
@@ -134,6 +131,13 @@
 [rebase]
   autosquash = true
   autostash = true
+[delta]
+  features = line-numbers decorations side-by-side
+  dark = true
+  syntax-theme = "Monokai Extended Origin"
+  navigate = true
+  line-numbers = true
+  side-by-side = false
 [credential "https://github.com"]
   helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
