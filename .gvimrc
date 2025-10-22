@@ -34,6 +34,8 @@ endif
 set guioptions-=T
 " メニューバーも表示しない
 set guioptions-=m
+" 横スクロールバーは表示したい
+set guioptions+=b
 "}}}
 
 " タブエディタ化する"{{{
