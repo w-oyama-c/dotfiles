@@ -71,6 +71,7 @@ case $ans in
     ln -siv $SCRIPT_DIR/.config/bat/ ~/.config/
     ln -siv $SCRIPT_DIR/.config/zsh/ ~/.config/
     ln -siv $SCRIPT_DIR/.config/glow/ ~/.config/
+    ln -siv $SCRIPT_DIR/.config/lazygit/ ~/.config/
 
     echo
     ;;

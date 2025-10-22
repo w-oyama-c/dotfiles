@@ -36,6 +36,11 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+# Cleanup old .zcompdump chaches
+for dump in ~/.zcompdump(N-.); do
+  [[ $dump != ~/.zcompdump ]] && rm -f $dump
+done
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -53,6 +58,7 @@ alias g=git
 alias ll="eza -l -h -F -m -U -g --icons --git --time-style=long-iso --color=automatic --group-directories-first"
 alias l="ll -aa"
 alias dc="docker compose"
+alias lg="lazygit"
 
 
 # export PATHs (Safety-path only)
