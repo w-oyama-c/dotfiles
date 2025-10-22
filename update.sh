@@ -13,5 +13,5 @@ brew upgrade
 brew cleanup
 brew doctor
 
-powershell -Command "Start-Process choco -ArgumentList 'upgrade all -y' -Verb RunAs"
-
+#powershell -Command "Start-Process choco -ArgumentList 'upgrade all -y' -Verb RunAs"
+powershell -Command "Start-Process pwsh -Verb RunAs -WorkingDirectory 'C:\\Windows\\System32' -ArgumentList '-NoExit','-Command','choco upgrade all -y; Read-Host \"Press Enter to exit\"'"
