@@ -4,4 +4,4 @@ git:
   branchLogCmd: "git log --graph --color=always --pretty='%C(yellow)%m %h%C(reset) - %s %C(green)%cd %C(bold blue)%an<%ae>%C(reset)%C(auto)%d%C(reset)%n' {{branchName}}"
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta --dark --paging=never --side-by-side
