@@ -68,3 +68,6 @@ export COLORTERM=truecolor
 # include other files
 [[ ! -f ~/.config/zsh/.secrets.zsh ]] || source ~/.config/zsh/.secrets.zsh
 
+# binding like emacs
+bindkey -e
+
