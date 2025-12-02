@@ -72,3 +72,7 @@ export COLORTERM=truecolor
 # binding like emacs
 bindkey -e
 
+
+# ====== Antigravity Launcher Config ======
+export PATH="$HOME/.local/bin:$PATH"
+# ====== End of Antigravity Launcher Config ======
