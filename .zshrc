@@ -59,6 +59,7 @@ alias ll="eza -l -h -F -m -U -g --icons --git --time-style=long-iso --color=auto
 alias l="ll -aa"
 alias dc="docker compose"
 alias lg="lazygit"
+alias svg2png="rsvg-convert --keep-aspect-ratio"
 
 
 # export PATHs (Safety-path only)
